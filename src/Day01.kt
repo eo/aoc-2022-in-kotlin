@@ -1,17 +1,22 @@
+// https://adventofcode.com/2022/day/1
 fun main() {
-    fun part1(input: List<String>): Int {
-        return input.size
+    fun totalCaloriesCarriedByEachElf(input: String): List<Int> = input.split("\n\n").map {
+        it.lines().sumOf(String::toInt)
     }
 
-    fun part2(input: List<String>): Int {
-        return input.size
+    fun part1(input: String): Int {
+        return totalCaloriesCarriedByEachElf(input)
+            .maxOrNull() ?: 0
     }
 
-    val testInput = readLines("Test01")
-    val input = readLines("Input01")
-    check(part1(testInput) == 1)
-    check(part2(testInput) == 1)
+    fun part2(input: String): Int {
+        return totalCaloriesCarriedByEachElf(input)
+            .sortedDescending()
+            .take(3)
+            .sum()
+    }
 
+    val input = readText("Input01")
     println("Part 1: " + part1(input))
     println("Part 2: " + part2(input))
 }
