@@ -64,7 +64,7 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-class ElevationGrid(private val chars: List<List<Char>>) {
+private class ElevationGrid(private val chars: List<List<Char>>) {
     val rowCount get() = chars.size
     val colCount get() = chars[0].size
 
@@ -94,7 +94,7 @@ class ElevationGrid(private val chars: List<List<Char>>) {
     }
 }
 
-data class Cell(val row: Int, val col: Int) {
+private data class Cell(val row: Int, val col: Int) {
     val adjacentCells: List<Cell>
         get() = listOf(
             copy(col = col - 1),

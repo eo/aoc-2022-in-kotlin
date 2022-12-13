@@ -62,7 +62,7 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-enum class HandShape(val score: Int) {
+private enum class HandShape(val score: Int) {
     ROCK(1) {
         override val winsAgainst get() = SCISSORS
         override val losesAgainst get() = PAPER
@@ -80,7 +80,7 @@ enum class HandShape(val score: Int) {
     abstract val losesAgainst: HandShape
 }
 
-enum class RoundResult(val score: Int) {
+private enum class RoundResult(val score: Int) {
     LOSS(0),
     DRAW(3),
     WIN(6);

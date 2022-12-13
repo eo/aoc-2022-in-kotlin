@@ -25,7 +25,7 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-class Move(val quantity: Int, val from: Int, val to: Int) {
+private class Move(val quantity: Int, val from: Int, val to: Int) {
     companion object {
         private val REGEX = "move (\\d+) from (\\d+) to (\\d+)".toRegex()
 
@@ -36,7 +36,7 @@ class Move(val quantity: Int, val from: Int, val to: Int) {
     }
 }
 
-class CrateStacks
+private class CrateStacks
 private constructor(private val stackIds: List<Int>, private val stacks: Map<Int, ArrayDeque<Char>>) {
     fun performSingleCrateMove(move: Move) {
         repeat(move.quantity) {

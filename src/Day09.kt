@@ -41,7 +41,7 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-data class Position(val x: Int, val y: Int) {
+private data class Position(val x: Int, val y: Int) {
     fun moved(direction: Direction) = when (direction) {
         Direction.LEFT -> Position(x - 1, y)
         Direction.RIGHT -> Position(x + 1, y)
@@ -57,14 +57,14 @@ data class Position(val x: Int, val y: Int) {
     }
 }
 
-enum class Direction {
+private enum class Direction {
     LEFT,
     RIGHT,
     UP,
     DOWN,
 }
 
-data class Motion(val direction: Direction, val count: Int) {
+private data class Motion(val direction: Direction, val count: Int) {
     companion object {
         fun fromString(str: String): Motion {
             val (directionStr, count) = str.split(" ")
@@ -81,7 +81,7 @@ data class Motion(val direction: Direction, val count: Int) {
     }
 }
 
-class Rope(
+private class Rope(
     val headPosition: Position = Position.ORIGIN,
     val tailPosition: Position = headPosition
 ) {
@@ -115,7 +115,7 @@ class Rope(
         }
 }
 
-class MultiKnotRope
+private class MultiKnotRope
 private constructor(
     private val knotPositions: List<Position>
 ) {

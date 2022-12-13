@@ -39,8 +39,7 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-
-class Monkey(val id: Int, items: List<Long>, val operation: Operation, val test: Test) {
+private class Monkey(val id: Int, items: List<Long>, val operation: Operation, val test: Test) {
     private val items = items.toMutableList()
     var totalInspections = 0L
         private set

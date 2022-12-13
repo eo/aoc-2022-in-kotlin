@@ -107,21 +107,21 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-typealias Grid = Array<IntArray>
+private typealias Grid = Array<IntArray>
 
-fun Grid(rowCount: Int, colCount: Int) = Array(rowCount) { IntArray(colCount) }
+private fun Grid(rowCount: Int, colCount: Int) = Array(rowCount) { IntArray(colCount) }
 
-val Grid.rowCount: Int get() = size
+private val Grid.rowCount: Int get() = size
 
-val Grid.colCount: Int get() = first().size
+private val Grid.colCount: Int get() = first().size
 
-operator fun Grid.get(row: Int, col: Int): Int = this[row][col]
+private operator fun Grid.get(row: Int, col: Int): Int = this[row][col]
 
-operator fun Grid.set(row: Int, col: Int, value: Int){
+private operator fun Grid.set(row: Int, col: Int, value: Int){
     this[row][col] = value
 }
 
-fun Grid.count(predicate: (Int, Int, Int) -> Boolean) =
+private fun Grid.count(predicate: (Int, Int, Int) -> Boolean) =
         foldIndexed(0) { row, totalCount, rowValues ->
             rowValues.foldIndexed(totalCount) { col, count, cellValue ->
                 count + if (predicate(row, col, cellValue)) 1 else 0

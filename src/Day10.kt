@@ -44,7 +44,7 @@ fun main() {
     println(part2(input))
 }
 
-sealed class Operation(val cycle: Int) {
+private sealed class Operation(val cycle: Int) {
     companion object {
         fun fromString(str: String): Operation =
             when (val operationName = str.substringBefore(" ")) {
@@ -55,6 +55,6 @@ sealed class Operation(val cycle: Int) {
     }
 }
 
-class AddOperation(val value: Int) : Operation(2)
+private class AddOperation(val value: Int) : Operation(2)
 
-object NoOperation : Operation(1)
+private object NoOperation : Operation(1)

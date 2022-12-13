@@ -96,11 +96,11 @@ fun main() {
     println("Part 2: " + part2(input))
 }
 
-sealed class File(val name: String)
+private sealed class File(val name: String)
 
-class DataFile(name: String, val size: Int) : File(name)
+private class DataFile(name: String, val size: Int) : File(name)
 
-class Directory(name: String, val files: List<File> = emptyList()) : File(name) {
+private class Directory(name: String, val files: List<File> = emptyList()) : File(name) {
     val totalSize: Int by lazy {
         files.sumOf {
             when (it) {
@@ -116,7 +116,7 @@ class Directory(name: String, val files: List<File> = emptyList()) : File(name) 
         })
 }
 
-class Command(val name: String, val parameter: String = "") {
+private class Command(val name: String, val parameter: String = "") {
     companion object {
         const val CHANGE_DIRECTORY = "cd"
         const val LIST_DIRECTORY = "ls"
